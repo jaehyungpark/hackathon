@@ -46,7 +46,8 @@ import sys
 import os
 import urllib
 
-PREDICTOR_PATH = "shape_predictor_68_face_landmarks.dat"
+PREDICTOR_PATH = sys.argv[3]
+# PREDICTOR_PATH = "/home/jpark/Dropbox/Project/Hackathon/lahacks17/test/hackathon/lib/shape_predictor_68_face_landmarks.dat"
 SCALE_FACTOR = 1 
 FEATHER_AMOUNT = 11
 
