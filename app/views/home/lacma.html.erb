@@ -1,32 +1,39 @@
-<h1>Home#lacma</h1>
-<p>Find me in app/views/home/lacma.html.erb</p>
+<h1>Los Angeles County Museum of Art</h1>
 
-
-
-<% @photos.each do |p| %>
-
-
+<section style="padding: 5%;">
 <div class="row">
+  <% @photos.each do |p| %>
   <div class="col s12 m4">
+    <!-- Reveal Card -->
     <div class="card">
       <div class="card-image">
         <img src="<%= p.background_img %>" class="materialboxed">
-        <!-- <%= image_tag 'lacma.jpeg', class:"materialboxed"%> -->
         <span class="card-title"> <i class="material-icons">location_on</i> <%=p.location %> </span>
       </div>
-      <div class="card-content">
-        <p>Username</p>
-        <!-- image , date -->
+      <div class="card-content" style="display: flex; flex-wrap: wrap; ">
+        <img style="border-radius: 10px;" src="<%= p.user_img_url %>"/>
+        <p style="padding-top: 15px;padding-left: 10px; color: #26a69a;">
+          <%=p.user_name%>
+        </p>
+        <p style="padding-top: 15px;padding-left: 10px;">
+          <%=p.created_at.strftime("%b %d %Y")%>
+        </p>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">Username<i class="material-icons right">close</i></span>
+        <p><%= p.content %></p>
+        <p>These are Comments</p>
       </div>
       <div class="card-action">
         <%= link_to like_photo_path(p), method: :put do %>
           <i class="material-icons" style="margin-right: 10px;">thumb_up</i>
-          <!-- <p> </p><%= p.get_upvotes.size %> -->
         <% end %>
         <b style="font-size: 19px;"><%= p.get_upvotes.size %></b>
-        <!-- <a href="#"><i class="material-icons">thumb_up</i></a> -->
-        <a href="#" class="right"><i class="material-icons">comment</i></a>
+        <span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i></span>
       </div>
     </div>
   </div>
 <% end %>
+</div>
+
+</section>
